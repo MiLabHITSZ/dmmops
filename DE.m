@@ -18,6 +18,7 @@ function [speak, sallpeak] = DE(fn, run)
     fits = pro.GetFits(pop);
     
     while ~pro.Terminate()
+        disp(pro.evaluated);
         % mutation, DE/rand/1
         index = zeros(N, 3);
         for i = 1:N

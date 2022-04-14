@@ -71,7 +71,7 @@ classdef DMMOP < handle
             obj.evaluation = obj.maxEnv * obj.freq;
             obj.evaluated = 0;
             obj.rs = struct();
-            obj.env = 1;
+            obj.env = 0;
             obj.change = false;
             obj.data = cell(obj.maxEnv, 1);
             obj.proRand = RandStream.create('mt19937ar','seed', 0);
@@ -238,11 +238,11 @@ classdef DMMOP < handle
         function chenv = CheckChange(obj, pop, fits)
             chenv = obj.change;
             if obj.change
-                obj.data{obj.env}.pop = pop;
-                obj.data{obj.env}.fits = fits;
-                obj.data{obj.env}.o = obj.o;
-                obj.data{obj.env}.of = obj.of;
-                obj.data{obj.env}.eva = obj.evaluated;
+                obj.data{obj.env+1}.pop = pop;
+                obj.data{obj.env+1}.fits = fits;
+                obj.data{obj.env+1}.o = obj.o;
+                obj.data{obj.env+1}.of = obj.of;
+                obj.data{obj.env+1}.eva = obj.evaluated;
                 obj.ChangeDynamic();
                 obj.change = false;
             end
