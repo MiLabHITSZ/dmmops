@@ -334,7 +334,7 @@ classdef DMMOP < handle
                 obj.x = obj.SetMinDistance(obj.x);
                 
 %                 disp(obj.evaluated);
-                obj.o = obj.x(1:obj.gn, :);
+                 obj.o = obj.x(obj.selected_idx(1:obj.gn), :);
                 
                 obj.of = obj.GetFitsCore(obj.o);
                %% save the changed postion and fitness
